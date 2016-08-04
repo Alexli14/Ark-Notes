@@ -1,0 +1,21 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Help.chm
+Contents file=Table of Contents.hhc
+Default topic=about.html
+Display compile progress=No
+Index file=Index.hhk
+Language=0x409 English (United States)
+
+
+[FILES]
+about.html
+addingSpecies.html
+database.html
+delete.html
+edit.html
+version.html
+add.html
+
+[INFOTYPES]
+

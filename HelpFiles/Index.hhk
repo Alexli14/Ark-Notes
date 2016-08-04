@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Microsoft&reg; HTML Help Workshop 4.1">
+<!-- Sitemap 1.0 -->
+</HEAD><BODY>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Settings">
+		<param name="Name" value="Changeing Database Connection String">
+		<param name="Local" value="database.html">
+		<param name="Name" value="Adding Species To Database">
+		<param name="Local" value="addingSpecies.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Record">
+		<param name="Name" value="Edit Dino Record">
+		<param name="Local" value="edit.html">
+		<param name="Name" value="Remove Dino Record">
+		<param name="Local" value="delete.html">
+		<param name="Name" value="Add Dino Record">
+		<param name="Local" value="add.html">
+		</OBJECT>
+</UL>
+</BODY></HTML>
