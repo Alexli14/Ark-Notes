@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="NotesDBConnectionString" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Users\Alexli14\AppData\Roaming\ArkNotes\NotesDB.accdb; Persist Security Info=False;</Value>
+      <Value Profile="(Default)">Provider=Microsoft.ACE.OLEDB.12.0; Data Source=%appdata%/ArkNotes/NotesDB.accdb; Persist Security Info=False;</Value>
     </Setting>
     <Setting Name="VersionNum" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">0.3.0</Value>
+      <Value Profile="(Default)">0.4.0</Value>
     </Setting>
     <Setting Name="firstsetup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

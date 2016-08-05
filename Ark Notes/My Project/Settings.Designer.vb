@@ -56,8 +56,8 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Users\Alexli14\AppData\Roaming\"& _ 
-            "ArkNotes\NotesDB.accdb; Persist Security Info=False;")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0; Data Source=%appdata%/ArkNotes/NotesDB.accdb; "& _ 
+            "Persist Security Info=False;")>  _
         Public Property NotesDBConnectionString() As String
             Get
                 Return CType(Me("NotesDBConnectionString"),String)
@@ -69,7 +69,7 @@ Namespace My
         
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("0.3.0")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0.4.0")>  _
         Public ReadOnly Property VersionNum() As String
             Get
                 Return CType(Me("VersionNum"),String)
