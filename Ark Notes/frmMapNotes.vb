@@ -19,12 +19,6 @@
         loadNotes()
     End Sub
 
-
-    Sub pinmaker()
-
-
-    End Sub
-
     ''' <summary>
     ''' Loads/refreshes notes list in dgvNotes
     ''' </summary>
@@ -85,7 +79,8 @@
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub AboutArkNotesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutArkNotesToolStripMenuItem.Click
-        MessageBox.Show("Ark Notes Version: " & My.Settings.VersionNum & vbCrLf & "By: XIV Industries" & vbCrLf & "For Support Contact: Support@XIVindustries.com", "About Ark Notes")
+        Dim frmInfo As Splash
+        frmInfo.ShowDialog()
     End Sub
     ''' <summary>
     ''' load and display help when help menu button is clicked
