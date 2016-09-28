@@ -173,17 +173,16 @@ Public Class frmSettings
                 testdb.connectionString = tbxDatabase.Text
                 testdb.conn.Open()
                 MessageBox.Show("Connection Seceded")
-
             End If
         Catch ex As Exception
-            MessageBox.Show("Error Connecting To Database: Reverting to Default Connection String." & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            tbxDatabase.Text = My.Settings.NotesDBConnectionString
-            If My.Settings.DBType = "OLEDB" Then
-                rbOLEDB.Checked = True
-            ElseIf My.Settings.DBType = "ODBC" Then
-                rbODBC.Checked = True
+            If MessageBox.Show("Error Connecting To Database:" & vbCrLf & ex.Message & "Do you want to revert to previous saved connection?", "Error: Database Connection Failed", MessageBoxButtons.YesNo, MessageBoxIcon.Error) = DialogResult.Yes Then
+                tbxDatabase.Text = My.Settings.NotesDBConnectionString
+                If My.Settings.DBType = "OLEDB" Then
+                    rbOLEDB.Checked = True
+                ElseIf My.Settings.DBType = "ODBC" Then
+                    rbODBC.Checked = True
+                End If
             End If
-
         End Try
     End Sub
 
