@@ -114,13 +114,6 @@
   <ItemGroup>
     <Compile Include="accessDBlink.vb" />
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="frmMain.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMain.Designer.vb">
-      <DependentUpon>frmMain.vb</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="frmAssets.Designer.vb">
       <DependentUpon>frmAssets.vb</DependentUpon>
     </Compile>
@@ -172,9 +165,6 @@
   <ItemGroup>
     <EmbeddedResource Include="frmAssets.resx">
       <DependentUpon>frmAssets.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMapNotes.resx">
       <DependentUpon>frmMapNotes.vb</DependentUpon>
