@@ -19,11 +19,15 @@
         'fill combo boxes
         cbxSpecies.Items.Add("") 'add blank choice   
         cbxSpeciesFilter.Items.Add("") 'add blank choice 
-        notesdb.SQL = "SELECT * from Species"
-        For i As Integer = 0 To notesdb.ds.Tables(0).Rows.Count - 1
-            cbxSpecies.Items.Add(notesdb.ds.Tables(0).Rows(i).Item("species"))
-            cbxSpeciesFilter.Items.Add(notesdb.ds.Tables(0).Rows(i).Item("species"))
-        Next
+        Try
+            notesdb.SQL = "SELECT * from Species"
+            For i As Integer = 0 To notesdb.ds.Tables(0).Rows.Count - 1
+                cbxSpecies.Items.Add(notesdb.ds.Tables(0).Rows(i).Item("species"))
+                cbxSpeciesFilter.Items.Add(notesdb.ds.Tables(0).Rows(i).Item("species"))
+            Next
+        Catch ex As Exception
+            MessageBox.Show("Error loading species data:" & vbNewLine & ex.Message, "Error", MessageBoxButtons.OK)
+        End Try
 
         Call EnableGroup(False)
     End Sub
@@ -150,6 +154,24 @@
         Catch ex As Exception
             MessageBox.Show("Error loading table:" & vbNewLine & ex.Message, "Error", MessageBoxButtons.OK)
         End Try
+
+        'fil in autofiill for search fields
+
+        notesdb.sql = "SELECT DISTINCT personalOwner from Dinos"
+        For i As Integer = 0 To notesdb.ds.Tables(0).Rows.Count - 1
+            With notesdb.ds.Tables(0).Rows(i)
+                tbxPersonalOwner.AutoCompleteCustomSource.Add(.item("personalOwner"))
+                tbxPersonalOwnerFilter.AutoCompleteCustomSource.Add(.item("personalOwner"))
+            End With
+        Next
+        notesdb.sql = "SELECT DISTINCT tribeOwner from Dinos"
+        For i As Integer = 0 To notesdb.ds.Tables(0).Rows.Count - 1
+            With notesdb.ds.Tables(0).Rows(i)
+                tbxTribeOwner.AutoCompleteCustomSource.Add(.item("tribeOwner"))
+                tbxTribeOwnerFilter.AutoCompleteCustomSource.Add(.item("tribeOwner"))
+            End With
+        Next
+
     End Sub
     ''' <summary>
     ''' When Filter is toggled on/off enable/disable the filter group box and call tableRefresh
@@ -368,7 +390,8 @@
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub AboutArkNotesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutArkNotesToolStripMenuItem.Click
-        MessageBox.Show("Ark Notes Version: " & My.Settings.VersionNum & vbCrLf & "By: XIV Industries" & vbCrLf & "For Support Contact: Support@XIVindustries.com", "About Ark Notes")
+        Dim frmInfo As Splash
+        frmInfo.ShowDialog()
     End Sub
 
 
@@ -468,9 +491,22 @@
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-    Private Sub SelectText(sender As Object, e As EventArgs) Handles tbxName.GotFocus, nudHealth.GotFocus, nudStam.GotFocus, nudFood.GotFocus, nudOxygen.GotFocus, nudStartLevel.GotFocus, nudWeight.GotFocus, nudDmg.GotFocus, nudSpeed.GotFocus, nudTorpor.GotFocus, tbxPersonalOwner.GotFocus, tbxTribeOwner.GotFocus, nudFreq.GotFocus, tbxNameFilter.GotFocus, nudHealthLow.GotFocus, nudHealthHigh.GotFocus, tbxPersonalOwnerFilter.GotFocus, tbxTribeOwnerFilter.GotFocus
+    Private Sub SelectText(sender As Object, e As EventArgs) Handles tbxName.GotFocus, nudHealth.GotFocus, nudStam.GotFocus, nudFood.GotFocus, nudOxygen.GotFocus, nudStartLevel.GotFocus, nudWeight.GotFocus, nudDmg.GotFocus, nudSpeed.GotFocus, nudTorpor.GotFocus, tbxPersonalOwner.GotFocus, tbxTribeOwner.GotFocus, nudFreq.GotFocus, tbxNameFilter.GotFocus, nudHealthLow.GotFocus, nudHealthHigh.GotFocus, nudStaminaLow.GotFocus, nudStaminaHigh.GotFocus, nudOxygenLow.GotFocus, nudOxygenHigh.GotFocus, nudFoodLow.GotFocus, nudFoodHigh.GotFocus, nudWeightLow.GotFocus, nudWeightHigh.GotFocus, nudDmgLow.GotFocus, nudDmgHigh.GotFocus, nudSpeedLow.GotFocus, nudSpeedHigh.GotFocus, nudTorporLow.GotFocus, nudTorporHigh.GotFocus, nudStartLow.GotFocus, nudStartHigh.GotFocus, tbxPersonalOwnerFilter.GotFocus, tbxTribeOwnerFilter.GotFocus, nudFreqFilter.GotFocus
         sender.Select(0, sender.Text.Length)
     End Sub
 
-
+    '''' <summary>
+    '''' sub to advance through controls in the gbxrecord 
+    '''' </summary>
+    '''' <param name="sender"></param>
+    '''' <param name="e"></param>
+    'Private Sub gbxRecord_PreviewKeyDown(sender As Object, e As PreviewKeyDownEventArgs) Handles gbxRecord.PreviewKeyDown
+    '    If e.KeyCode = Keys.Enter Then
+    '        If btnSave.Focused Then
+    '        Else
+    '            Dim ctrl As Control = Me.GetNextControl(fo, True)
+    '            ctrl.Focus()
+    '        End If
+    '    End If
+    'End Sub
 End Class
