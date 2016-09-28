@@ -4369,7 +4369,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]Ark Notes.Primary output</td><td/></row>
 		<row><td>ProductCode</td><td>{02C7F339-DB58-40C5-877D-9032E1DB192C}</td><td/></row>
 		<row><td>ProductName</td><td>Ark Notes</td><td/></row>
-		<row><td>ProductVersion</td><td>0.03.0000</td><td/></row>
+		<row><td>ProductVersion</td><td>0.4.1</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>

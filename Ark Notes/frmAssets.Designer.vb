@@ -532,6 +532,8 @@ Partial Class frmAssets
         '
         'tbxTribeOwner
         '
+        Me.tbxTribeOwner.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.tbxTribeOwner.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.tbxTribeOwner.Location = New System.Drawing.Point(97, 229)
         Me.tbxTribeOwner.Name = "tbxTribeOwner"
         Me.tbxTribeOwner.Size = New System.Drawing.Size(245, 20)
@@ -539,6 +541,8 @@ Partial Class frmAssets
         '
         'tbxPersonalOwner
         '
+        Me.tbxPersonalOwner.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.tbxPersonalOwner.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.tbxPersonalOwner.Location = New System.Drawing.Point(97, 201)
         Me.tbxPersonalOwner.Name = "tbxPersonalOwner"
         Me.tbxPersonalOwner.Size = New System.Drawing.Size(245, 20)
@@ -688,7 +692,7 @@ Partial Class frmAssets
         '
         'nudDmg
         '
-        Me.nudDmg.DecimalPlaces = 2
+        Me.nudDmg.DecimalPlaces = 1
         Me.nudDmg.Increment = New Decimal(New Integer() {25, 0, 0, 131072})
         Me.nudDmg.InterceptArrowKeys = False
         Me.nudDmg.Location = New System.Drawing.Point(260, 97)
@@ -701,7 +705,7 @@ Partial Class frmAssets
         '
         'nudSpeed
         '
-        Me.nudSpeed.DecimalPlaces = 2
+        Me.nudSpeed.DecimalPlaces = 1
         Me.nudSpeed.InterceptArrowKeys = False
         Me.nudSpeed.Location = New System.Drawing.Point(260, 123)
         Me.nudSpeed.Maximum = New Decimal(New Integer() {500, 0, 0, 0})
@@ -838,6 +842,7 @@ Partial Class frmAssets
         '
         'nudHealthLow
         '
+        Me.nudHealthLow.DecimalPlaces = 1
         Me.nudHealthLow.InterceptArrowKeys = False
         Me.nudHealthLow.Location = New System.Drawing.Point(106, 71)
         Me.nudHealthLow.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
@@ -848,6 +853,7 @@ Partial Class frmAssets
         '
         'nudHealthHigh
         '
+        Me.nudHealthHigh.DecimalPlaces = 1
         Me.nudHealthHigh.InterceptArrowKeys = False
         Me.nudHealthHigh.Location = New System.Drawing.Point(220, 71)
         Me.nudHealthHigh.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
@@ -858,6 +864,7 @@ Partial Class frmAssets
         '
         'nudStaminaLow
         '
+        Me.nudStaminaLow.DecimalPlaces = 1
         Me.nudStaminaLow.InterceptArrowKeys = False
         Me.nudStaminaLow.Location = New System.Drawing.Point(106, 97)
         Me.nudStaminaLow.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
@@ -868,6 +875,7 @@ Partial Class frmAssets
         '
         'nudStaminaHigh
         '
+        Me.nudStaminaHigh.DecimalPlaces = 1
         Me.nudStaminaHigh.InterceptArrowKeys = False
         Me.nudStaminaHigh.Location = New System.Drawing.Point(220, 97)
         Me.nudStaminaHigh.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
@@ -878,6 +886,7 @@ Partial Class frmAssets
         '
         'nudOxygenLow
         '
+        Me.nudOxygenLow.DecimalPlaces = 1
         Me.nudOxygenLow.InterceptArrowKeys = False
         Me.nudOxygenLow.Location = New System.Drawing.Point(106, 123)
         Me.nudOxygenLow.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
@@ -889,6 +898,7 @@ Partial Class frmAssets
         '
         'nudOxygenHigh
         '
+        Me.nudOxygenHigh.DecimalPlaces = 1
         Me.nudOxygenHigh.InterceptArrowKeys = False
         Me.nudOxygenHigh.Location = New System.Drawing.Point(220, 123)
         Me.nudOxygenHigh.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
@@ -900,6 +910,7 @@ Partial Class frmAssets
         '
         'nudFoodLow
         '
+        Me.nudFoodLow.DecimalPlaces = 1
         Me.nudFoodLow.InterceptArrowKeys = False
         Me.nudFoodLow.Location = New System.Drawing.Point(106, 149)
         Me.nudFoodLow.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
@@ -910,6 +921,7 @@ Partial Class frmAssets
         '
         'nudFoodHigh
         '
+        Me.nudFoodHigh.DecimalPlaces = 1
         Me.nudFoodHigh.InterceptArrowKeys = False
         Me.nudFoodHigh.Location = New System.Drawing.Point(220, 149)
         Me.nudFoodHigh.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
@@ -920,6 +932,7 @@ Partial Class frmAssets
         '
         'nudStartLow
         '
+        Me.nudStartLow.DecimalPlaces = 1
         Me.nudStartLow.InterceptArrowKeys = False
         Me.nudStartLow.Location = New System.Drawing.Point(106, 172)
         Me.nudStartLow.Maximum = New Decimal(New Integer() {500, 0, 0, 0})
@@ -930,6 +943,7 @@ Partial Class frmAssets
         '
         'nudStartHigh
         '
+        Me.nudStartHigh.DecimalPlaces = 1
         Me.nudStartHigh.InterceptArrowKeys = False
         Me.nudStartHigh.Location = New System.Drawing.Point(220, 172)
         Me.nudStartHigh.Maximum = New Decimal(New Integer() {500, 0, 0, 0})
@@ -940,6 +954,7 @@ Partial Class frmAssets
         '
         'nudWeightLow
         '
+        Me.nudWeightLow.DecimalPlaces = 1
         Me.nudWeightLow.InterceptArrowKeys = False
         Me.nudWeightLow.Location = New System.Drawing.Point(378, 71)
         Me.nudWeightLow.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
@@ -950,6 +965,7 @@ Partial Class frmAssets
         '
         'nudWeightHigh
         '
+        Me.nudWeightHigh.DecimalPlaces = 1
         Me.nudWeightHigh.InterceptArrowKeys = False
         Me.nudWeightHigh.Location = New System.Drawing.Point(492, 71)
         Me.nudWeightHigh.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
@@ -960,7 +976,7 @@ Partial Class frmAssets
         '
         'nudDmgLow
         '
-        Me.nudDmgLow.DecimalPlaces = 2
+        Me.nudDmgLow.DecimalPlaces = 1
         Me.nudDmgLow.InterceptArrowKeys = False
         Me.nudDmgLow.Location = New System.Drawing.Point(378, 97)
         Me.nudDmgLow.Maximum = New Decimal(New Integer() {500, 0, 0, 0})
@@ -972,7 +988,7 @@ Partial Class frmAssets
         '
         'nudDmgHigh
         '
-        Me.nudDmgHigh.DecimalPlaces = 2
+        Me.nudDmgHigh.DecimalPlaces = 1
         Me.nudDmgHigh.InterceptArrowKeys = False
         Me.nudDmgHigh.Location = New System.Drawing.Point(492, 97)
         Me.nudDmgHigh.Maximum = New Decimal(New Integer() {500, 0, 0, 0})
@@ -984,7 +1000,7 @@ Partial Class frmAssets
         '
         'nudSpeedLow
         '
-        Me.nudSpeedLow.DecimalPlaces = 2
+        Me.nudSpeedLow.DecimalPlaces = 1
         Me.nudSpeedLow.InterceptArrowKeys = False
         Me.nudSpeedLow.Location = New System.Drawing.Point(378, 123)
         Me.nudSpeedLow.Maximum = New Decimal(New Integer() {500, 0, 0, 0})
@@ -996,7 +1012,7 @@ Partial Class frmAssets
         '
         'nudSpeedHigh
         '
-        Me.nudSpeedHigh.DecimalPlaces = 2
+        Me.nudSpeedHigh.DecimalPlaces = 1
         Me.nudSpeedHigh.InterceptArrowKeys = False
         Me.nudSpeedHigh.Location = New System.Drawing.Point(492, 123)
         Me.nudSpeedHigh.Maximum = New Decimal(New Integer() {500, 0, 0, 0})
@@ -1008,6 +1024,7 @@ Partial Class frmAssets
         '
         'nudTorporLow
         '
+        Me.nudTorporLow.DecimalPlaces = 1
         Me.nudTorporLow.InterceptArrowKeys = False
         Me.nudTorporLow.Location = New System.Drawing.Point(378, 149)
         Me.nudTorporLow.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
@@ -1018,6 +1035,7 @@ Partial Class frmAssets
         '
         'nudTorporHigh
         '
+        Me.nudTorporHigh.DecimalPlaces = 1
         Me.nudTorporHigh.InterceptArrowKeys = False
         Me.nudTorporHigh.Location = New System.Drawing.Point(492, 149)
         Me.nudTorporHigh.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
@@ -1263,6 +1281,8 @@ Partial Class frmAssets
         '
         'tbxPersonalOwnerFilter
         '
+        Me.tbxPersonalOwnerFilter.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.tbxPersonalOwnerFilter.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.tbxPersonalOwnerFilter.Location = New System.Drawing.Point(106, 201)
         Me.tbxPersonalOwnerFilter.Name = "tbxPersonalOwnerFilter"
         Me.tbxPersonalOwnerFilter.Size = New System.Drawing.Size(196, 20)
@@ -1270,6 +1290,8 @@ Partial Class frmAssets
         '
         'tbxTribeOwnerFilter
         '
+        Me.tbxTribeOwnerFilter.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
+        Me.tbxTribeOwnerFilter.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource
         Me.tbxTribeOwnerFilter.Location = New System.Drawing.Point(106, 227)
         Me.tbxTribeOwnerFilter.Name = "tbxTribeOwnerFilter"
         Me.tbxTribeOwnerFilter.Size = New System.Drawing.Size(196, 20)
