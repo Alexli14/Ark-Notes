@@ -3747,6 +3747,7 @@
 	<table name="ISSwidtagProperty">
 		<col key="yes" def="s72">Name</col>
 		<col def="s0">Value</col>
+		<row><td>TagCreatorName</td><td>XIV Industries</td></row>
 		<row><td>UniqueId</td><td>253DE7D8-ACEA-4214-A934-642FD241C968</td></row>
 	</table>
 
@@ -4369,7 +4370,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]Ark Notes.Primary output</td><td/></row>
 		<row><td>ProductCode</td><td>{02C7F339-DB58-40C5-877D-9032E1DB192C}</td><td/></row>
 		<row><td>ProductName</td><td>Ark Notes</td><td/></row>
-		<row><td>ProductVersion</td><td>0.4.1</td><td/></row>
+		<row><td>ProductVersion</td><td>0.4.3</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4383,7 +4384,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>SERIALNUMVALSUCCESSRETVAL</td><td>1</td><td/></row>
 		<row><td>SHOWLAUNCHPROGRAM</td><td>0</td><td/></row>
 		<row><td>SHOWLAUNCHREADME</td><td>0</td><td/></row>
-		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION45FULL;HKEY_LOCAL_MACHINE_SOFTWARE_MICROSOFT_OFFICE_14.0_ACCESS_CONNECTI;ISACTIONPROP2</td><td/></row>
+		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION45FULL;HKEY_LOCAL_MACHINE_SOFTWARE_MICROSOFT_OFFICE_14.0_ACCESS_CONNECTI;ISACTIONPROP2;ISACTIONPROP1</td><td/></row>
 		<row><td>SelectedSetupType</td><td>##IDS__DisplayName_Typical##</td><td/></row>
 		<row><td>SetupType</td><td>Typical</td><td/></row>
 		<row><td>UpgradeCode</td><td>{A9F94868-65DD-442C-8D6B-2F35A2A9A35B}</td><td/></row>
@@ -4660,6 +4661,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s72">ActionProperty</col>
 		<col def="S72">ISDisplayName</col>
 		<row><td>{00000000-0000-0000-0000-000000000000}</td><td>***ALL_VERSIONS***</td><td></td><td></td><td>2</td><td/><td>ISFOUNDNEWERPRODUCTVERSION</td><td>ISPreventDowngrade</td></row>
+		<row><td>{A9F94868-65DD-442C-8D6B-2F35A2A9A35B}</td><td>0</td><td>0.4.3</td><td></td><td>768</td><td/><td>ISACTIONPROP1</td><td>to_0.4.3</td></row>
 		<row><td>{A9F94868-65DD-442C-8D6B-2F35A2A9A35B}</td><td>0.01.0000</td><td>0.02.0000</td><td>1033</td><td>768</td><td/><td>ISACTIONPROP2</td><td>From_v0.2.0</td></row>
 	</table>
 
