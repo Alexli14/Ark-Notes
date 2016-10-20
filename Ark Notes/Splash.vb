@@ -1,4 +1,5 @@
 ﻿Public Class Splash
+    Dim frmMain As New frmAssets
     Private Sub Splash_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Text = "Ark Notes v" + My.Settings.VersionNum
         lblVersion.Text = My.Settings.VersionNum
@@ -10,7 +11,7 @@
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        Dim frmMain As New frmAssets
+        Timer1.Enabled = False
         frmMain.Show()
         Me.Close()
     End Sub
