@@ -225,8 +225,9 @@
 	<table name="AppSearch">
 		<col key="yes" def="s72">Property</col>
 		<col key="yes" def="s72">Signature_</col>
+		<row><td>ADOBEREADER10FOLDER</td><td>AdobeReader10</td></row>
 		<row><td>DOTNETVERSION45FULL</td><td>DotNet45Full</td></row>
-		<row><td>HKEY_LOCAL_MACHINE_SOFTWARE_MICROSOFT_OFFICE_14.0_ACCESS_CONNECTI</td><td>NewSignature1</td></row>
+		<row><td>HKEY_CLASSES_ROOT_INSTALLER_PRODUCTS_000041091D0090400100000000F0</td><td>NewSignature1</td></row>
 	</table>
 
 	<table name="BBControl">
@@ -266,6 +267,7 @@
 		<row><td>NewBinary18</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\InstallStateMenu.ico</td></row>
 		<row><td>NewBinary19</td><td/><td>&lt;ISProductFolder&gt;\redist\Language independent\i386\SerialNumCAHelper.dll</td></row>
 		<row><td>NewBinary2</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\New.ibd</td></row>
+		<row><td>NewBinary20</td><td/><td>C:\Users\Alexli14\Downloads\AccessDatabaseEngine_X64.exe</td></row>
 		<row><td>NewBinary3</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\Up.ibd</td></row>
 		<row><td>NewBinary4</td><td/><td>&lt;ISProductFolder&gt;\Redist\Language Independent\OS Independent\WarningIcon.ibd</td></row>
 		<row><td>NewBinary5</td><td/><td>&lt;ISProductFolder&gt;\Support\Themes\InstallShield Blue Theme\welcome.jpg</td></row>
@@ -1014,10 +1016,10 @@
 		<row><td>SetupCompleteError</td><td>Finish</td><td>DoAction</td><td>CleanUp</td><td>ISSCRIPTRUNNING="1"</td><td>1</td></row>
 		<row><td>SetupCompleteError</td><td>Finish</td><td>DoAction</td><td>ShowMsiLog</td><td>MsiLogFileLocation And (ISSHOWMSILOG="1")</td><td>3</td></row>
 		<row><td>SetupCompleteError</td><td>Finish</td><td>EndDialog</td><td>Exit</td><td>1</td><td>2</td></row>
-		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>CleanUp</td><td>ISSCRIPTRUNNING="1"</td><td>1</td></row>
-		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>LaunchProgramFileFromSetupCompleteSuccess</td><td>LAUNCHPROGRAM And PROGRAMFILETOLAUNCHATEND &lt;&gt; "" And NOT Installed</td><td>2</td></row>
-		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>ShowMsiLog</td><td>MsiLogFileLocation And (ISSHOWMSILOG="1") And NOT ISENABLEDWUSFINISHDIALOG</td><td>7</td></row>
-		<row><td>SetupCompleteSuccess</td><td>OK</td><td>EndDialog</td><td>Exit</td><td>1</td><td>3</td></row>
+		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>CleanUp</td><td>ISSCRIPTRUNNING="1"</td><td>3</td></row>
+		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>LaunchProgramFileFromSetupCompleteSuccess</td><td>LAUNCHPROGRAM And PROGRAMFILETOLAUNCHATEND &lt;&gt; "" And NOT Installed</td><td>4</td></row>
+		<row><td>SetupCompleteSuccess</td><td>OK</td><td>DoAction</td><td>ShowMsiLog</td><td>MsiLogFileLocation And (ISSHOWMSILOG="1") And NOT ISENABLEDWUSFINISHDIALOG</td><td>9</td></row>
+		<row><td>SetupCompleteSuccess</td><td>OK</td><td>EndDialog</td><td>Exit</td><td>1</td><td>5</td></row>
 		<row><td>SetupError</td><td>A</td><td>EndDialog</td><td>ErrorAbort</td><td>1</td><td>0</td></row>
 		<row><td>SetupError</td><td>C</td><td>EndDialog</td><td>ErrorCancel</td><td>1</td><td>0</td></row>
 		<row><td>SetupError</td><td>I</td><td>EndDialog</td><td>ErrorIgnore</td><td>1</td><td>0</td></row>
@@ -2633,11 +2635,12 @@
 		<col def="I2">Encoded</col>
 		<col def="S0">Comment</col>
 		<col def="I4">TimeStamp</col>
-		<row><td>COMPANY_NAME</td><td>1033</td><td>XIV Industres</td><td>0</td><td/><td>1940165266</td></row>
+		<row><td>COMPANY_NAME</td><td>1033</td><td>XIV Industres</td><td>0</td><td/><td>-1524355443</td></row>
 		<row><td>DN_AlwaysInstall</td><td>1033</td><td>Always Install</td><td>0</td><td/><td>-1037782578</td></row>
+		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_ADOBEREADER10FOLDER</td><td>1033</td><td>Adobe Reader 10 needs to be installed for this installation to continue.</td><td>0</td><td/><td>-1524362257</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_COLOR</td><td>1033</td><td>The color settings of your system are not adequate for running [ProductName].</td><td>0</td><td/><td>-1037782578</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL</td><td>1033</td><td>Microsoft .NET Framework 4.5 Full package or greater needs to be installed for this installation to continue.</td><td>0</td><td/><td>-1037827538</td></row>
-		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_HKEY_LOCAL_MACHINE_SOFTWARE_</td><td>1033</td><td>Microsoft Access Database Engine 2010 required for install to continue.</td><td>0</td><td/><td>-903590239</td></row>
+		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_HKEY_CLASSES_ROOT_INSTALLER_</td><td>1033</td><td>Microsoft Access Database Engine 2010 Redistributable Is required for install to continue</td><td>0</td><td/><td>-1524317233</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_OS</td><td>1033</td><td>The operating system is not adequate for running [ProductName].</td><td>0</td><td/><td>-1037782578</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>-1037782578</td></row>
 		<row><td>IDPROP_EXPRESS_LAUNCH_CONDITION_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-1037782578</td></row>
@@ -3736,17 +3739,18 @@
 		<row><td>IDS__TargetReq_DESC_PROCESSOR</td><td>1033</td><td>The processor is not adequate for running [ProductName].</td><td>0</td><td/><td>-1037782578</td></row>
 		<row><td>IDS__TargetReq_DESC_RAM</td><td>1033</td><td>The amount of RAM is not adequate for running [ProductName].</td><td>0</td><td/><td>-1037782578</td></row>
 		<row><td>IDS__TargetReq_DESC_RESOLUTION</td><td>1033</td><td>The screen resolution is not adequate for running [ProductName].</td><td>0</td><td/><td>-1037782578</td></row>
-		<row><td>ID_STRING1</td><td>1033</td><td>http://www.XIVIndustres.com</td><td>0</td><td/><td>1940165266</td></row>
-		<row><td>ID_STRING2</td><td>1033</td><td>XIV Industres</td><td>0</td><td/><td>1940165266</td></row>
+		<row><td>ID_STRING1</td><td>1033</td><td>http://www.XIVIndustres.com</td><td>0</td><td/><td>-1524355443</td></row>
+		<row><td>ID_STRING2</td><td>1033</td><td>XIV Industres</td><td>0</td><td/><td>-1524355443</td></row>
 		<row><td>ID_STRING3</td><td>1033</td><td>Ark Notes</td><td>0</td><td/><td>-1037815631</td></row>
 		<row><td>ID_STRING4</td><td>1033</td><td>support.XIVindustries.com</td><td>0</td><td/><td>1940175408</td></row>
-		<row><td>ID_STRING5</td><td>1033</td><td>http://www.XIVIndustres.com/Support</td><td>0</td><td/><td>2074366032</td></row>
+		<row><td>ID_STRING5</td><td>1033</td><td>http://www.XIVIndustres.com/Support</td><td>0</td><td/><td>-1524355443</td></row>
 		<row><td>IIDS_UITEXT_FeatureUninstalled</td><td>1033</td><td>This feature will remain uninstalled.</td><td>0</td><td/><td>-1037782578</td></row>
 	</table>
 
 	<table name="ISSwidtagProperty">
 		<col key="yes" def="s72">Name</col>
 		<col def="s0">Value</col>
+		<row><td>TagCreatorName</td><td>XIV Industries</td></row>
 		<row><td>UniqueId</td><td>253DE7D8-ACEA-4214-A934-642FD241C968</td></row>
 	</table>
 
@@ -3934,7 +3938,7 @@
 		<row><td>RegisterUser</td><td/><td>6000</td><td>RegisterUser</td><td/></row>
 		<row><td>RemoveDuplicateFiles</td><td/><td>3400</td><td>RemoveDuplicateFiles</td><td/></row>
 		<row><td>RemoveEnvironmentStrings</td><td/><td>3300</td><td>RemoveEnvironmentStrings</td><td/></row>
-		<row><td>RemoveExistingProducts</td><td/><td>1410</td><td>RemoveExistingProducts</td><td/></row>
+		<row><td>RemoveExistingProducts</td><td/><td>6601</td><td>RemoveExistingProducts</td><td/></row>
 		<row><td>RemoveFiles</td><td/><td>3500</td><td>RemoveFiles</td><td/></row>
 		<row><td>RemoveFolders</td><td/><td>3600</td><td>RemoveFolders</td><td/></row>
 		<row><td>RemoveIniValues</td><td/><td>3100</td><td>RemoveIniValues</td><td/></row>
@@ -3990,7 +3994,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>ISTheme</td><td>InstallShield Blue.theme</td></row>
 		<row><td>ISUSLock</td><td>{F10A4309-112D-41F8-B336-4493E2F78715}</td></row>
 		<row><td>ISUSSignature</td><td>{7EFEBDA6-4FC1-4D7B-B79D-6068E11905AD}</td></row>
-		<row><td>ISVisitedViews</td><td>viewAssistant,viewSystemSearch,viewISToday,viewLearnMore,viewUpgradePaths,viewAppFiles,viewShortcuts,viewIniFiles,viewFileExtensions,viewEnvironmentVariables,viewVRoots,viewServices,viewUI,viewRelease,viewCustomActions,viewTextMessages,viewProject,viewObjects</td></row>
+		<row><td>ISVisitedViews</td><td>viewAssistant,viewSystemSearch,viewISToday,viewLearnMore,viewUpgradePaths,viewAppFiles,viewShortcuts,viewIniFiles,viewFileExtensions,viewEnvironmentVariables,viewVRoots,viewServices,viewUI,viewRelease,viewCustomActions,viewTextMessages,viewProject,viewObjects,viewUpdateService,viewRegistry</td></row>
 		<row><td>Limited</td><td>1</td></row>
 		<row><td>LockPermissionMode</td><td>1</td></row>
 		<row><td>MsiExecCmdLineOptions</td><td/></row>
@@ -4050,6 +4054,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col key="yes" def="s255">Condition</col>
 		<col def="l255">Description</col>
 		<row><td>(Not Version9X) And (Not ((VersionNT&gt;=400 And VersionNT&lt;=502) Or (VersionNT=600 And MsiNTProductType=1)))</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_OS##</td></row>
+		<row><td>ADOBEREADER10FOLDER</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_ADOBEREADER10FOLDER##</td></row>
 		<row><td>DOTNETVERSION45FULL&gt;="#1"</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL##</td></row>
 	</table>
 
@@ -4369,7 +4374,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>PROGRAMFILETOLAUNCHATEND</td><td>[INSTALLDIR]Ark Notes.Primary output</td><td/></row>
 		<row><td>ProductCode</td><td>{02C7F339-DB58-40C5-877D-9032E1DB192C}</td><td/></row>
 		<row><td>ProductName</td><td>Ark Notes</td><td/></row>
-		<row><td>ProductVersion</td><td>0.4.1</td><td/></row>
+		<row><td>ProductVersion</td><td>0.4.3</td><td/></row>
 		<row><td>ProgressType0</td><td>install</td><td/></row>
 		<row><td>ProgressType1</td><td>Installing</td><td/></row>
 		<row><td>ProgressType2</td><td>installed</td><td/></row>
@@ -4383,7 +4388,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>SERIALNUMVALSUCCESSRETVAL</td><td>1</td><td/></row>
 		<row><td>SHOWLAUNCHPROGRAM</td><td>0</td><td/></row>
 		<row><td>SHOWLAUNCHREADME</td><td>0</td><td/></row>
-		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION45FULL;HKEY_LOCAL_MACHINE_SOFTWARE_MICROSOFT_OFFICE_14.0_ACCESS_CONNECTI;ISACTIONPROP2</td><td/></row>
+		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION45FULL;ISACTIONPROP2;ISACTIONPROP1;HKEY_CLASSES_ROOT_INSTALLER_PRODUCTS_000041091D0090400100000000F0;ADOBEREADER10FOLDER</td><td/></row>
 		<row><td>SelectedSetupType</td><td>##IDS__DisplayName_Typical##</td><td/></row>
 		<row><td>SetupType</td><td>Typical</td><td/></row>
 		<row><td>UpgradeCode</td><td>{A9F94868-65DD-442C-8D6B-2F35A2A9A35B}</td><td/></row>
@@ -4428,8 +4433,9 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s255">Key</col>
 		<col def="S255">Name</col>
 		<col def="I2">Type</col>
+		<row><td>AdobeReader10</td><td>2</td><td>Software\Adobe\Acrobat Reader\10.0\InstallPath</td><td/><td>0</td></row>
 		<row><td>DotNet45Full</td><td>2</td><td>SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full</td><td>Version</td><td>2</td></row>
-		<row><td>NewSignature1</td><td>2</td><td>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Office\14.0\Access Connectivity Engine\Engines\ACE</td><td/><td>2</td></row>
+		<row><td>NewSignature1</td><td>0</td><td>HKEY_CLASSES_ROOT\Installer\Products\000041091D0090400100000000F01FEC</td><td/><td>2</td></row>
 	</table>
 
 	<table name="Registry">
@@ -4660,6 +4666,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s72">ActionProperty</col>
 		<col def="S72">ISDisplayName</col>
 		<row><td>{00000000-0000-0000-0000-000000000000}</td><td>***ALL_VERSIONS***</td><td></td><td></td><td>2</td><td/><td>ISFOUNDNEWERPRODUCTVERSION</td><td>ISPreventDowngrade</td></row>
+		<row><td>{A9F94868-65DD-442C-8D6B-2F35A2A9A35B}</td><td>0</td><td>0.4.3</td><td></td><td>768</td><td/><td>ISACTIONPROP1</td><td>to_0.4.3</td></row>
 		<row><td>{A9F94868-65DD-442C-8D6B-2F35A2A9A35B}</td><td>0.01.0000</td><td>0.02.0000</td><td>1033</td><td>768</td><td/><td>ISACTIONPROP2</td><td>From_v0.2.0</td></row>
 	</table>
 

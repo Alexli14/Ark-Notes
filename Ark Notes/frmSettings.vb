@@ -18,12 +18,17 @@ Public Class frmSettings
     ''' Loads and refreshes list of spices
     ''' </summary>
     Private Sub loadSpecies()
-        lbxSpecies.Items.Clear()
-        notesdb.connectionString = My.Settings.NotesDBConnectionString
-        notesdb.SQL = "SELECT * from Species"
-        For i As Integer = 0 To notesdb.ds.Tables(0).Rows.Count - 1
-            lbxSpecies.Items.Add(notesdb.ds.Tables(0).Rows(i).Item("species"))
-        Next
+
+        Try
+            notesdb.connectionString = My.Settings.NotesDBConnectionString
+            notesdb.SQL = "SELECT * from Species"
+            lbxSpecies.Items.Clear()
+            For i As Integer = 0 To notesdb.ds.Tables(0).Rows.Count - 1
+                lbxSpecies.Items.Add(notesdb.ds.Tables(0).Rows(i).Item("species"))
+            Next
+        Catch ex As Exception
+            MessageBox.Show("Error Species Data:" & vbNewLine & ex.Message, "Error", MessageBoxButtons.OK)
+        End Try
     End Sub
 
     ''' <summary>
@@ -98,14 +103,17 @@ Public Class frmSettings
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        notesdb.connectionString = My.Settings.NotesDBConnectionString
-        notesdb.SQL = "Select * from Species;"
-        Dim dsnewrow As DataRow
-        dsnewrow = notesdb.ds.Tables(0).NewRow
-        dsnewrow.Item("species") = tbxSpecies.Text
-        notesdb.ds.Tables(0).Rows.Add(dsnewrow)
-        notesdb.da.Update(notesdb.ds)
-
+        Try
+            notesdb.connectionString = My.Settings.NotesDBConnectionString
+            notesdb.SQL = "Select * from Species;"
+            Dim dsnewrow As DataRow
+            dsnewrow = notesdb.ds.Tables(0).NewRow
+            dsnewrow.Item("species") = tbxSpecies.Text
+            notesdb.ds.Tables(0).Rows.Add(dsnewrow)
+            notesdb.da.Update(notesdb.ds)
+        Catch ex As Exception
+            MessageBox.Show("Error Adding Record:" & vbNewLine & ex.Message, "Error", MessageBoxButtons.OK)
+        End Try
         loadSpecies()
     End Sub
 
@@ -117,13 +125,17 @@ Public Class frmSettings
     Private Sub btnRemove_Click(sender As Object, e As EventArgs) Handles btnRemove.Click
         If MessageBox.Show("Are you sure you want to delete " & lbxSpecies.SelectedItem & "?", "delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             'create class
-            notesdb.connectionString = My.Settings.NotesDBConnectionString
-            Dim strSQL As String
-            strSQL = "SELECT * FROM Species WHERE species = '" & lbxSpecies.SelectedItem.ToString & "';"
-            notesdb.SQL = strSQL
-            notesdb.ds.Tables(0).Rows(0).Delete()
-            notesdb.da.Update(notesdb.ds)
-            'refresh screen
+            Try
+                notesdb.connectionString = My.Settings.NotesDBConnectionString
+                Dim strSQL As String
+                strSQL = "SELECT * FROM Species WHERE species = '" & lbxSpecies.SelectedItem.ToString & "';"
+                notesdb.SQL = strSQL
+                notesdb.ds.Tables(0).Rows(0).Delete()
+                notesdb.da.Update(notesdb.ds)
+                'refresh screen
+            Catch ex As Exception
+                MessageBox.Show("Error removing record:" & vbNewLine & ex.Message, "Error", MessageBoxButtons.OK)
+            End Try
         End If
         loadSpecies()
     End Sub

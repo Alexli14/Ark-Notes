@@ -27,7 +27,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>0.1.0.%2a</ApplicationVersion>
+    <ApplicationVersion>0.4.3.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -120,6 +120,12 @@
     <Compile Include="frmAssets.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmInfo.Designer.vb">
+      <DependentUpon>frmInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMapNotes.Designer.vb">
       <DependentUpon>frmMapNotes.vb</DependentUpon>
     </Compile>
@@ -165,6 +171,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmAssets.resx">
       <DependentUpon>frmAssets.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInfo.resx">
+      <DependentUpon>frmInfo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMapNotes.resx">
       <DependentUpon>frmMapNotes.vb</DependentUpon>

@@ -151,26 +151,33 @@
                     .Cells(16).Value = notesdb.ds.Tables(0).Rows(i).Item("transponderFreq")
                 End With
             Next
+
+            'fil in autofiill for search fields
+
+            notesdb.sql = "SELECT DISTINCT personalOwner from Dinos"
+            For i As Integer = 0 To notesdb.ds.Tables(0).Rows.Count - 1
+                With notesdb.ds.Tables(0).Rows(i)
+                    tbxPersonalOwner.AutoCompleteCustomSource.Add(.item("personalOwner"))
+                    tbxPersonalOwnerFilter.AutoCompleteCustomSource.Add(.item("personalOwner"))
+                End With
+            Next
+            notesdb.sql = "SELECT DISTINCT tribeOwner from Dinos"
+            For i As Integer = 0 To notesdb.ds.Tables(0).Rows.Count - 1
+                With notesdb.ds.Tables(0).Rows(i)
+                    tbxTribeOwner.AutoCompleteCustomSource.Add(.item("tribeOwner"))
+                    tbxTribeOwnerFilter.AutoCompleteCustomSource.Add(.item("tribeOwner"))
+                End With
+            Next
+            notesdb.sql = "SELECT DISTINCT dinoName from Dinos"
+            For i As Integer = 0 To notesdb.ds.Tables(0).Rows.Count - 1
+                With notesdb.ds.Tables(0).Rows(i)
+                    tbxNameFilter.AutoCompleteCustomSource.Add(.item("tribeOwner"))
+                End With
+            Next
+
         Catch ex As Exception
             MessageBox.Show("Error loading table:" & vbNewLine & ex.Message, "Error", MessageBoxButtons.OK)
         End Try
-
-        'fil in autofiill for search fields
-
-        notesdb.sql = "SELECT DISTINCT personalOwner from Dinos"
-        For i As Integer = 0 To notesdb.ds.Tables(0).Rows.Count - 1
-            With notesdb.ds.Tables(0).Rows(i)
-                tbxPersonalOwner.AutoCompleteCustomSource.Add(.item("personalOwner"))
-                tbxPersonalOwnerFilter.AutoCompleteCustomSource.Add(.item("personalOwner"))
-            End With
-        Next
-        notesdb.sql = "SELECT DISTINCT tribeOwner from Dinos"
-        For i As Integer = 0 To notesdb.ds.Tables(0).Rows.Count - 1
-            With notesdb.ds.Tables(0).Rows(i)
-                tbxTribeOwner.AutoCompleteCustomSource.Add(.item("tribeOwner"))
-                tbxTribeOwnerFilter.AutoCompleteCustomSource.Add(.item("tribeOwner"))
-            End With
-        Next
 
     End Sub
     ''' <summary>
@@ -264,60 +271,64 @@
             Exit Sub
         End If
 
-        If gbxRecord.Tag = 0 Then
-            'new record 
-            notesdb.SQL = "SELECT * From Dinos WHERE ID = 0;"
-            Dim dsnewrow As DataRow
-            dsnewrow = notesdb.ds.Tables(0).NewRow
-            With dsnewrow
-                .Item("dinoName") = tbxName.Text
-                .Item("Gender") = cbxGender.SelectedItem
-                .Item("species") = cbxSpecies.Text
-                .Item("health") = nudHealth.Value
-                .Item("stamina") = nudStam.Value
-                'aquatic dinos have o2 set to -1
-                .Item("oxygen") = nudOxygen.Value
-                .Item("food") = nudFood.Value
-                .Item("weightCapacity") = nudWeight.Value
-                .Item("damage") = nudDmg.Value
-                .Item("speed") = nudSpeed.Value
-                .Item("torpor") = nudTorpor.Value
-                .Item("startingLevel") = nudStartLevel.Value
-                .Item("personalOwner") = tbxPersonalOwner.Text
-                .Item("tribeOwner") = tbxTribeOwner.Text
-                .Item("transponderFreq") = nudFreq.Value
-                .Item("living") = cbxLiving.Text
-            End With
-            notesdb.ds.Tables(0).Rows.Add(dsnewrow)
-            notesdb.da.Update(notesdb.ds)
-        Else
-            notesdb.SQL = "SELECT * From Dinos WHERE ID = " & gbxRecord.Tag & ";"
-            With notesdb.ds.Tables(0).Rows(0)
-                .Item("dinoName") = tbxName.Text
-                .Item("Gender") = cbxGender.SelectedItem
-                .Item("species") = cbxSpecies.Text
-                .Item("health") = nudHealth.Value
-                .Item("stamina") = nudStam.Value
-                'aquatic dinos have o2 set to -1
-                If nudOxygen.Value = -1 Then
-                Else
+        Try
+            If gbxRecord.Tag = 0 Then
+                'new record 
+                notesdb.SQL = "SELECT * From Dinos WHERE ID = 0;"
+                Dim dsnewrow As DataRow
+                dsnewrow = notesdb.ds.Tables(0).NewRow
+                With dsnewrow
+                    .Item("dinoName") = tbxName.Text
+                    .Item("Gender") = cbxGender.SelectedItem
+                    .Item("species") = cbxSpecies.Text
+                    .Item("health") = nudHealth.Value
+                    .Item("stamina") = nudStam.Value
+                    'aquatic dinos have o2 set to -1
                     .Item("oxygen") = nudOxygen.Value
-                End If
-                .Item("food") = nudFood.Value
-                .Item("weightCapacity") = nudWeight.Value
-                .Item("damage") = nudDmg.Value
-                .Item("speed") = nudSpeed.Value
-                .Item("torpor") = nudTorpor.Value
-                .Item("startingLevel") = nudStartLevel.Value
-                .Item("personalOwner") = tbxPersonalOwner.Text
-                .Item("tribeOwner") = tbxTribeOwner.Text
-                .Item("transponderFreq") = nudFreq.Value
-                .Item("living") = cbxLiving.Text
-            End With
-            notesdb.da.Update(notesdb.ds)
-        End If
-        Call EnableGroup(False)
-        Call tableRefresh()
+                    .Item("food") = nudFood.Value
+                    .Item("weightCapacity") = nudWeight.Value
+                    .Item("damage") = nudDmg.Value
+                    .Item("speed") = nudSpeed.Value
+                    .Item("torpor") = nudTorpor.Value
+                    .Item("startingLevel") = nudStartLevel.Value
+                    .Item("personalOwner") = tbxPersonalOwner.Text
+                    .Item("tribeOwner") = tbxTribeOwner.Text
+                    .Item("transponderFreq") = nudFreq.Value
+                    .Item("living") = cbxLiving.Text
+                End With
+                notesdb.ds.Tables(0).Rows.Add(dsnewrow)
+                notesdb.da.Update(notesdb.ds)
+            Else
+                notesdb.SQL = "SELECT * From Dinos WHERE ID = " & gbxRecord.Tag & ";"
+                With notesdb.ds.Tables(0).Rows(0)
+                    .Item("dinoName") = tbxName.Text
+                    .Item("Gender") = cbxGender.SelectedItem
+                    .Item("species") = cbxSpecies.Text
+                    .Item("health") = nudHealth.Value
+                    .Item("stamina") = nudStam.Value
+                    'aquatic dinos have o2 set to -1
+                    If nudOxygen.Value = -1 Then
+                    Else
+                        .Item("oxygen") = nudOxygen.Value
+                    End If
+                    .Item("food") = nudFood.Value
+                    .Item("weightCapacity") = nudWeight.Value
+                    .Item("damage") = nudDmg.Value
+                    .Item("speed") = nudSpeed.Value
+                    .Item("torpor") = nudTorpor.Value
+                    .Item("startingLevel") = nudStartLevel.Value
+                    .Item("personalOwner") = tbxPersonalOwner.Text
+                    .Item("tribeOwner") = tbxTribeOwner.Text
+                    .Item("transponderFreq") = nudFreq.Value
+                    .Item("living") = cbxLiving.Text
+                End With
+                notesdb.da.Update(notesdb.ds)
+            End If
+            Call EnableGroup(False)
+            Call tableRefresh()
+        Catch ex As Exception
+            MessageBox.Show("Error saving record data:" & vbNewLine & ex.Message, "Error", MessageBoxButtons.OK)
+        End Try
     End Sub
 
     ''' <summary>
@@ -374,12 +385,16 @@
         Dim ID As String = dgvDinos.Rows(r).Cells(0).Value
         'verify intent
         If MessageBox.Show("Are you sure you want to delete " & dgvDinos.Rows(r).Cells(1).Value & "?", "delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
-            'create class
-            notesdb.SQL = "SELECT * From Dinos WHERE ID = " & ID & ";"
-            notesdb.ds.Tables(0).Rows(0).Delete()
-            notesdb.da.Update(notesdb.ds)
-            'refresh screen
-            Call tableRefresh()
+            Try
+                'create class
+                notesdb.SQL = "SELECT * From Dinos WHERE ID = " & ID & ";"
+                notesdb.ds.Tables(0).Rows(0).Delete()
+                notesdb.da.Update(notesdb.ds)
+                'refresh screen
+                Call tableRefresh()
+            Catch ex As Exception
+                MessageBox.Show("Error removing record data:" & vbNewLine & ex.Message, "Error", MessageBoxButtons.OK)
+            End Try
         End If
     End Sub
 
@@ -390,7 +405,7 @@
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub AboutArkNotesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutArkNotesToolStripMenuItem.Click
-        Dim frmInfo As Splash
+        Dim frmInfo As New frmInfo
         frmInfo.ShowDialog()
     End Sub
 
@@ -404,20 +419,24 @@
         Dim frm As New frmSettings
         frm.ShowDialog()
         'Reload form data 
-        gbxFilter.Enabled = chbxFilter.Checked
-        If My.Settings.DBType = "OLEDB" Then
-            notesdb = New accessDBlink
-        ElseIf My.Settings.DBType = "ODBC" Then
-            notesdb = New mysqlDBlink
-        End If
-        notesdb.connectionString = My.Settings.NotesDBConnectionString
-        Call tableRefresh()
-        'fill combo boxes
-        notesdb.SQL = "SELECT * from Species"
-        For i As Integer = 0 To notesdb.ds.Tables(0).Rows.Count - 1
-            cbxSpecies.Items.Add(notesdb.ds.Tables(0).Rows(i).Item("species"))
-            cbxSpeciesFilter.Items.Add(notesdb.ds.Tables(0).Rows(i).Item("species"))
-        Next
+        Try
+            gbxFilter.Enabled = chbxFilter.Checked
+            If My.Settings.DBType = "OLEDB" Then
+                notesdb = New accessDBlink
+            ElseIf My.Settings.DBType = "ODBC" Then
+                notesdb = New mysqlDBlink
+            End If
+            notesdb.connectionString = My.Settings.NotesDBConnectionString
+            Call tableRefresh()
+            'fill combo boxes
+            notesdb.SQL = "SELECT * from Species"
+            For i As Integer = 0 To notesdb.ds.Tables(0).Rows.Count - 1
+                cbxSpecies.Items.Add(notesdb.ds.Tables(0).Rows(i).Item("species"))
+                cbxSpeciesFilter.Items.Add(notesdb.ds.Tables(0).Rows(i).Item("species"))
+            Next
+        Catch ex As Exception
+            MessageBox.Show("Error loading species data:" & vbNewLine & ex.Message, "Error", MessageBoxButtons.OK)
+        End Try
     End Sub
     ''' <summary>
     ''' launces an instance of frmMapNotes and closes this form
