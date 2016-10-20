@@ -405,7 +405,7 @@
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub AboutArkNotesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutArkNotesToolStripMenuItem.Click
-        Dim frmInfo As Splash
+        Dim frmInfo As New frmInfo
         frmInfo.ShowDialog()
     End Sub
 
