@@ -23,44 +23,47 @@
     ''' Loads/refreshes notes list in dgvNotes
     ''' </summary>
     Sub loadNotes()
-        Dim MinMapX, MinMapY, MaxMapX, MaxMapY As Double
-        Dim scalerValX, scalerValY As Single
-        Dim pinOffsetX As Integer = -11
-        Dim pinOffsetY As Integer = -30
-        'MinMapX = pbxMap.Location.X
-        'MinMapY = pbxMap.Location.Y 
-        'MaxMapX = pbxMap.Location.X + pbxMap.Width
-        'MaxMapY = pbxMap.Location.Y + pbxMap.Height
-        MinMapX = 20 / 1434 * pbxMap.Width
-        MinMapY = 40 / 1434 * pbxMap.Width
-        MaxMapX = pbxMap.Width
-        MaxMapY = pbxMap.Height
-        scalerValX = (MaxMapX - MinMapX) / 100
-        scalerValY = (MaxMapY - MinMapY) / 100
-        pbxMap.Controls.Clear()
-        pbxMap.Refresh()
-        dgvNotes.Rows.Clear()
-        notesdb.SQL = "SELECT * from mapNotes"
-        For i As Integer = 0 To notesdb.ds.Tables(0).Rows.Count - 1
-            dgvNotes.Rows.Add()
-            With dgvNotes.Rows(i)
-                .Cells(0).Value = notesdb.ds.Tables(0).Rows(i).Item("ID")
-                .Cells(1).Value = notesdb.ds.Tables(0).Rows(i).Item("noteName")
-                .Cells(2).Value = notesdb.ds.Tables(0).Rows(i).Item("Xcoord")
-                .Cells(3).Value = notesdb.ds.Tables(0).Rows(i).Item("Ycoord")
-                .Cells(4).Value = notesdb.ds.Tables(0).Rows(i).Item("noteText")
-            End With
-            pbxPinX = New PictureBox
-            pbxPinX.SizeMode = PictureBoxSizeMode.Zoom
-            pbxPinX.Image = My.Resources.Map_pin_icon_svg
-            pbxPinX.Width = 22
-            pbxPinX.Height = 30
-            pbxPinX.Location = New Point((scalerValX * notesdb.ds.Tables(0).Rows(i).Item("Xcoord")) + pinOffsetX + MinMapX, (scalerValY * notesdb.ds.Tables(0).Rows(i).Item("Ycoord")) + pinOffsetY + MinMapY)
-            pbxPinX.BackColor = Color.Transparent
-            pbxPinX.Name = "pbxPin" + notesdb.ds.Tables(0).Rows(i).Item("ID").ToString
-            pbxMap.Controls.Add(pbxPinX)
-        Next
-
+        Try
+            Dim MinMapX, MinMapY, MaxMapX, MaxMapY As Double
+            Dim scalerValX, scalerValY As Single
+            Dim pinOffsetX As Integer = -11
+            Dim pinOffsetY As Integer = -30
+            'MinMapX = pbxMap.Location.X
+            'MinMapY = pbxMap.Location.Y 
+            'MaxMapX = pbxMap.Location.X + pbxMap.Width
+            'MaxMapY = pbxMap.Location.Y + pbxMap.Height
+            MinMapX = 20 / 1434 * pbxMap.Width
+            MinMapY = 40 / 1434 * pbxMap.Width
+            MaxMapX = pbxMap.Width
+            MaxMapY = pbxMap.Height
+            scalerValX = (MaxMapX - MinMapX) / 100
+            scalerValY = (MaxMapY - MinMapY) / 100
+            pbxMap.Controls.Clear()
+            pbxMap.Refresh()
+            dgvNotes.Rows.Clear()
+            notesdb.SQL = "SELECT * from mapNotes"
+            For i As Integer = 0 To notesdb.ds.Tables(0).Rows.Count - 1
+                dgvNotes.Rows.Add()
+                With dgvNotes.Rows(i)
+                    .Cells(0).Value = notesdb.ds.Tables(0).Rows(i).Item("ID")
+                    .Cells(1).Value = notesdb.ds.Tables(0).Rows(i).Item("noteName")
+                    .Cells(2).Value = notesdb.ds.Tables(0).Rows(i).Item("Xcoord")
+                    .Cells(3).Value = notesdb.ds.Tables(0).Rows(i).Item("Ycoord")
+                    .Cells(4).Value = notesdb.ds.Tables(0).Rows(i).Item("noteText")
+                End With
+                pbxPinX = New PictureBox
+                pbxPinX.SizeMode = PictureBoxSizeMode.Zoom
+                pbxPinX.Image = My.Resources.Map_pin_icon_svg
+                pbxPinX.Width = 22
+                pbxPinX.Height = 30
+                pbxPinX.Location = New Point((scalerValX * notesdb.ds.Tables(0).Rows(i).Item("Xcoord")) + pinOffsetX + MinMapX, (scalerValY * notesdb.ds.Tables(0).Rows(i).Item("Ycoord")) + pinOffsetY + MinMapY)
+                pbxPinX.BackColor = Color.Transparent
+                pbxPinX.Name = "pbxPin" + notesdb.ds.Tables(0).Rows(i).Item("ID").ToString
+                pbxMap.Controls.Add(pbxPinX)
+            Next
+        Catch ex As Exception
+            MessageBox.Show("Error loading map notes:" & vbNewLine & ex.Message, "Error", MessageBoxButtons.OK)
+        End Try
     End Sub
 
     ''' <summary>
@@ -79,7 +82,7 @@
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub AboutArkNotesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutArkNotesToolStripMenuItem.Click
-        Dim frmInfo As Splash
+        Dim frmInfo As New frmInfo
         frmInfo.ShowDialog()
     End Sub
     ''' <summary>
@@ -138,9 +141,13 @@
         'verify intent
         If MessageBox.Show("Are you sure you want to delete " & dgvNotes.Rows(r).Cells(1).Value & "?", "delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = vbYes Then
             'create class
-            notesdb.SQL = "SELECT * From mapNotes WHERE ID = " & ID & ";"
-            notesdb.ds.Tables(0).Rows(0).Delete()
-            notesdb.da.Update(notesdb.ds)
+            Try
+                notesdb.SQL = "SELECT * From mapNotes WHERE ID = " & ID & ";"
+                notesdb.ds.Tables(0).Rows(0).Delete()
+                notesdb.da.Update(notesdb.ds)
+            Catch ex As Exception
+                MessageBox.Show("Error removing record:" & vbNewLine & ex.Message, "Error", MessageBoxButtons.OK)
+            End Try
         End If
         loadNotes()
 
@@ -208,31 +215,35 @@
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        If gbxNotes.Tag = 0 Then
-            'new record 
-            notesdb.SQL = "SELECT * From mapNotes WHERE ID = 0;"
-            Dim dsnewrow As DataRow
-            dsnewrow = notesdb.ds.Tables(0).NewRow
-            With dsnewrow
-                .Item("noteName") = tbxTitle.Text
-                .Item("Xcoord") = nudX.Value
-                .Item("Ycoord") = nudY.Value
-                .Item("noteText") = rtbxNoteText.Text
-            End With
-            notesdb.ds.Tables(0).Rows.Add(dsnewrow)
-            notesdb.da.Update(notesdb.ds)
-        Else
-            notesdb.SQL = "SELECT * From mapNotes WHERE ID = " & gbxNotes.Tag & ";"
-            With notesdb.ds.Tables(0).Rows(0)
-                .Item("noteName") = tbxTitle.Text
-                .Item("Xcoord") = nudX.Value
-                .Item("Ycoord") = nudY.Value
-                .Item("noteText") = rtbxNoteText.Text
-            End With
-            notesdb.da.Update(notesdb.ds)
-        End If
-        Call EnableGroup(False)
-        Call loadNotes()
+        Try
+            If gbxNotes.Tag = 0 Then
+                'new record 
+                notesdb.SQL = "SELECT * From mapNotes WHERE ID = 0;"
+                Dim dsnewrow As DataRow
+                dsnewrow = notesdb.ds.Tables(0).NewRow
+                With dsnewrow
+                    .Item("noteName") = tbxTitle.Text
+                    .Item("Xcoord") = nudX.Value
+                    .Item("Ycoord") = nudY.Value
+                    .Item("noteText") = rtbxNoteText.Text
+                End With
+                notesdb.ds.Tables(0).Rows.Add(dsnewrow)
+                notesdb.da.Update(notesdb.ds)
+            Else
+                notesdb.SQL = "SELECT * From mapNotes WHERE ID = " & gbxNotes.Tag & ";"
+                With notesdb.ds.Tables(0).Rows(0)
+                    .Item("noteName") = tbxTitle.Text
+                    .Item("Xcoord") = nudX.Value
+                    .Item("Ycoord") = nudY.Value
+                    .Item("noteText") = rtbxNoteText.Text
+                End With
+                notesdb.da.Update(notesdb.ds)
+            End If
+            Call EnableGroup(False)
+            Call loadNotes()
+        Catch ex As Exception
+            MessageBox.Show("Error saving record data:" & vbNewLine & ex.Message, "Error", MessageBoxButtons.OK)
+        End Try
     End Sub
     ''' <summary>
     ''' cancels the add or edit process and resets the controls in gbxNotes
