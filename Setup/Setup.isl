@@ -225,6 +225,7 @@
 	<table name="AppSearch">
 		<col key="yes" def="s72">Property</col>
 		<col key="yes" def="s72">Signature_</col>
+		<row><td>ADOBEREADER10FOLDER</td><td>AdobeReader10</td></row>
 		<row><td>DOTNETVERSION45FULL</td><td>DotNet45Full</td></row>
 		<row><td>HKEY_CLASSES_ROOT_INSTALLER_PRODUCTS_000041091D0090400100000000F0</td><td>NewSignature1</td></row>
 	</table>
@@ -4053,6 +4054,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col key="yes" def="s255">Condition</col>
 		<col def="l255">Description</col>
 		<row><td>(Not Version9X) And (Not ((VersionNT&gt;=400 And VersionNT&lt;=502) Or (VersionNT=600 And MsiNTProductType=1)))</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_OS##</td></row>
+		<row><td>ADOBEREADER10FOLDER</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_ADOBEREADER10FOLDER##</td></row>
 		<row><td>DOTNETVERSION45FULL&gt;="#1"</td><td>##IDPROP_EXPRESS_LAUNCH_CONDITION_DOTNETVERSION45FULL##</td></row>
 	</table>
 
@@ -4386,7 +4388,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<row><td>SERIALNUMVALSUCCESSRETVAL</td><td>1</td><td/></row>
 		<row><td>SHOWLAUNCHPROGRAM</td><td>0</td><td/></row>
 		<row><td>SHOWLAUNCHREADME</td><td>0</td><td/></row>
-		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION45FULL;ISACTIONPROP2;ISACTIONPROP1;HKEY_CLASSES_ROOT_INSTALLER_PRODUCTS_000041091D0090400100000000F0</td><td/></row>
+		<row><td>SecureCustomProperties</td><td>ISFOUNDNEWERPRODUCTVERSION;USERNAME;COMPANYNAME;ISX_SERIALNUM;SUPPORTDIR;DOTNETVERSION45FULL;ISACTIONPROP2;ISACTIONPROP1;HKEY_CLASSES_ROOT_INSTALLER_PRODUCTS_000041091D0090400100000000F0;ADOBEREADER10FOLDER</td><td/></row>
 		<row><td>SelectedSetupType</td><td>##IDS__DisplayName_Typical##</td><td/></row>
 		<row><td>SetupType</td><td>Typical</td><td/></row>
 		<row><td>UpgradeCode</td><td>{A9F94868-65DD-442C-8D6B-2F35A2A9A35B}</td><td/></row>
@@ -4431,6 +4433,7 @@ UwBpAG4AZwBsAGUASQBtAGEAZwBlAAEARQB4AHAAcgBlAHMAcwA=
 		<col def="s255">Key</col>
 		<col def="S255">Name</col>
 		<col def="I2">Type</col>
+		<row><td>AdobeReader10</td><td>2</td><td>Software\Adobe\Acrobat Reader\10.0\InstallPath</td><td/><td>0</td></row>
 		<row><td>DotNet45Full</td><td>2</td><td>SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full</td><td>Version</td><td>2</td></row>
 		<row><td>NewSignature1</td><td>0</td><td>HKEY_CLASSES_ROOT\Installer\Products\000041091D0090400100000000F01FEC</td><td/><td>2</td></row>
 	</table>
